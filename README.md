@@ -1,10 +1,14 @@
-# NYCDA Props Challenge
+# NYCDA React Fluxification Challenge
 
-The following set of components will challenge your knowledge of propTypes and
-defaultProps. Alter each component in `src/components/` to have the correct
-propTypes, and if there's a reasonable place to, add defaultProps. For objects,
-do not rely on just `PropTypes.object`, use `PropTypes.shape` to define all of
-the properties that you know of for the object. If having a property is required
-for it to function, or won't look right without it, use `.isRequired`
+The following app displays a gallery of art. However, right now the components
+are stubbed out with dummy data, despite our data store being in `App.jsx`'s
+state. There are also functions to get art data, favorite art, and toggle the
+list to only show favorites that aren't hooked up yet either. So to finish this
+app off, do the following:
 
-When you've fixed them all, open a pull request with your changes.
+1. _Fork_ the repository, and _clone_ (NOT DOWNLOAD) your new repo
+2. Edit the routes in `App.jsx` to send the appropriate data and action function
+props to the page components
+3. Hook up the data correctly inside of the Page components
+4. Call or bind the prop action functions as needed
+5. Once everything functions well, open a pull request with your changes
