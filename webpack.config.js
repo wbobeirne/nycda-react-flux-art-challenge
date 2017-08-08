@@ -38,8 +38,7 @@ rules.push({
 	use: [{
 		loader: "file-loader",
 		options: {
-			name: "[name].[ext]?[hash:8]",
-			useRelativePath: true,
+			name: "[path][name].[ext]?[hash:8]",
 		},
 	}, {
 		loader: "image-webpack-loader",
@@ -52,8 +51,7 @@ rules.push({
 	use: {
 		loader: "file-loader",
 		options: {
-			name: "[name].[ext]?[hash:8]",
-			useRelativePath: true,
+			name: "[path][name].[ext]?[hash:8]",
 		},
 	},
 });

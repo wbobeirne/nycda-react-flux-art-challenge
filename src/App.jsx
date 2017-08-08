@@ -14,7 +14,7 @@ class App extends React.Component {
 		isLoading: false,
 	};
 
-	_getArt(artId) {
+	_getArt = (artId) => {
 		// Returns the art object that has the same ID as the argument. If
 		// no art is found with that ID, returns null.
 		return this.state.artList.reduce((prev, art) => {
@@ -22,7 +22,7 @@ class App extends React.Component {
 		}, null);
 	}
 
-	_toggleFavorite(artId) {
+	_toggleFavorite = (artId) => {
 		const { favorites } = this.state;
 
 		this.setState({
@@ -35,10 +35,23 @@ class App extends React.Component {
 		});
 	}
 
-	_toggleFavoriteFilter() {
+	_toggleFavoriteFilter = () => {
 		// Replaces the art list with one that only has favorited art. If that's
 		// already active, puts it back to having all art.
+		const { isShowingFavorites, favorites } = this.state;
+		let artList;
+
+		if (isShowingFavorites) {
+			artList = ART;
+		}
+		else {
+			artList = this.state.artList.filter((art) => {
+				return !!favorites[art.id];
+			});
+		}
+
 		this.setState({
+			artList,
 			isShowingFavorites: !this.state.isShowingFavorites,
 		});
 	}
