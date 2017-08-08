@@ -1,0 +1,31 @@
+@import "src/util/sass";
+
+.Art {
+	text-align: center;
+
+	&-frame {
+		@include frame;
+	}
+
+	&-info {
+		&-title {
+			font-size: 28px;
+			font-weight: 100;
+			letter-spacing: 4px;
+			color: #888;
+			margin-bottom: 10px;
+		}
+
+		&-artist {
+			font-size: 18px;
+			font-weight: 100;
+			letter-spacing: 3px;
+			color: #AAA;
+			margin-bottom: 20px;
+		}
+
+		&-favorite {
+			@include favorite-btn;
+		}
+	}
+}

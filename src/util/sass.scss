@@ -1,0 +1,41 @@
+// Variables
+$heart-red: #f44336;
+$fav-btn-size: 28px;
+
+// Mixins
+@mixin frame {
+	position: relative;
+	display: inline-block;
+	padding: 20px;
+	margin-bottom: 20px;
+	background-color: #F3F3F3;
+	border: solid 20px #FFF;
+	border-left-color: #F6F6F6;
+	border-radius: 2px;
+	border-right-color: #F6F6F6;
+	border-top-color: #F2F2F2;
+	box-shadow: 0 0 5px 0 rgba(0,0,0,.25) inset,
+							0 2px 4px rgba(0,0,0,.25);
+}
+
+@mixin favorite-btn {
+	height: $fav-btn-size;
+	border: 1px solid #CCC;
+	margin-left: 5px;
+	color: #CCC;
+	font-size: 15px;
+	background: none;
+	border-radius: 3px;
+	cursor: pointer;
+	outline: none;
+
+	&:hover {
+		border-color: #AAA;
+		color: #AAA;
+	}
+
+	&.isActive {
+		color: #f44336;
+		border-color: #f44336;
+	}
+}
