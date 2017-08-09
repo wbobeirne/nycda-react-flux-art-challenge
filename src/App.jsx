@@ -57,6 +57,7 @@ class App extends React.Component {
 	}
 
 	render() {
+		const { artList, favorites, isShowingFavorites } = this.state;
 		return (
 			<BrowserRouter>
 				<div className="App">
@@ -67,8 +68,29 @@ class App extends React.Component {
 					</div>
 
 					<Switch>
-						<Route exact path="/" component={List} />
-						<Route path="/art/:artId" component={Art} />
+						<Route exact path="/" render={() => {
+							return (
+								<List
+									artList={ artList }
+									favorites={ favorites }
+									toggleFavoriteFilter={this._toggleFavoriteFilter}
+								/>
+							 );
+ 					}}
+						/>
+						<Route path="/art/:artId" render={(props) => {
+							return (
+								<Art
+									art={this._getArt(+props.match.params.artId)}
+									artId={props.match.params.artId}
+									favorite={favorites[props.match.params.artId]}
+									toggleFavorite={this._toggleFavorite}
+
+
+					 	 />
+				 );
+			 }}
+		 			/>
 					</Switch>
 				</div>
 			</BrowserRouter>

@@ -1,38 +1,18 @@
 import "./List.scss";
 import React from "react";
+import PropTypes from "prop-types";
 
 import ListArt from "components/ListArt";
 
 class List extends React.Component {
 	render() {
 		// Replace me with real data
-		const artList = [{
-			id: 1,
-			title: "Test 1",
-			artist: "Test Artist",
-			year: 2017,
-			image: "http://via.placeholder.com/500x350",
-		}, {
-			id: 2,
-			title: "Test 2",
-			artist: "Test Artist",
-			year: 2017,
-			image: "http://via.placeholder.com/250x600",
-		}, {
-			id: 3,
-			title: "Test 3",
-			artist: "Test Artist",
-			year: 2017,
-			image: "http://via.placeholder.com/400x400",
-		}];
+		const {
+			artList, favorites, isShowingFavorites, toggleFavoriteFilter
+		} = this.props;
 
 		// Replace me with real data prop
-		const favorites = {
-			2: true,
-		};
 
-		// Replace me with real data prop
-		const isShowingFavorites = false;
 		let favClass = "List-filter-favorites";
 		if (isShowingFavorites) {
 			favClass += " isActive";
@@ -42,7 +22,7 @@ class List extends React.Component {
 			<div className="List">
 				<div className="List-filter">
 					Show only favorites
-					<button className={favClass}>
+					<button className={favClass} onClick={toggleFavoriteFilter}>
 						♥
 					</button>
 				</div>
@@ -60,5 +40,13 @@ class List extends React.Component {
 		);
 	}
 }
+
+
+
+
+List.propTypes = {
+	artList: PropTypes.arrayOf(PropTypes.object),
+};
+
 
 export default List;
