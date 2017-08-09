@@ -2,18 +2,17 @@ import "./Art.scss";
 import React from "react";
 
 class Art extends React.Component {
+	_handleClick = () => {
+		this.props.toggleFavorite(this.props.art.id);
+	}
+
 	render() {
 		// Replace me with real data from props
-		const art = {
-			id: 1,
-			title: "Test Art",
-			artist: "Test Artist",
-			year: 2017,
-			image: "http://via.placeholder.com/300x300"
-		};
-
+		const { art, favorite, toggleFavorite } = this.props;
+		console.log(art); 
 		// Replace me with real data from props
-		const isFavorited = false;
+		const isFavorited = favorite;
+		console.log(isFavorited);
 		let favClass = "Art-info-favorite";
 		if (isFavorited) {
 			favClass += " isActive";
@@ -28,7 +27,7 @@ class Art extends React.Component {
 				<div className="Art-info">
 					<div className="Art-info-title">{art.title}</div>
 					<div className="Art-info-artist">{art.artist} ({art.year})</div>
-					<button className={favClass}>
+					<button className={favClass} onClick={this._handleClick}>
 						{isFavorited ? 'Unfavorite' : 'Favorite'} ♥
 					</button>
 				</div>
